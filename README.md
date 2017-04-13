@@ -1,2 +1,2 @@
 # webpack-demo
-Webpack 2 + Sass Loader
+Webpack 2 + Sass Loader + Preact
