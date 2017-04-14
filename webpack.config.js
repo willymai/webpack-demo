@@ -9,19 +9,26 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const  config = {
-    context: __dirname + '/src', // `__dirname` is root of project and `src` is source
+    context: path.resolve(__dirname, 'src') , // `__dirname` is root of project and `src` is source
     entry: {
-        main: path.join(__dirname, '/src/index.jsx'),
-        styles: path.join(__dirname, '/src/styles/main.scss')
+        main: './index.jsx',
+        styles: './styles/main.scss'
     },
     output: {
-        path: path.join(__dirname, '/dist/'), // `dist` is the destination
+        path: path.resolve(__dirname, 'dist'), // `dist` is the destination
         publicPath: '/',
         filename: '[name].js',
     },
-    devServer: {
-        // open: true, // to open the local server in browser
-        contentBase: __dirname + '/src',
+    // devServer: {
+    //     // open: true, // to open the local server in browser
+    //     contentBase: __dirname,
+    // },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        modules: [
+            'src',
+            'node_modules'
+        ],
     },
     module: {
         rules: [
